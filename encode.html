@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>JS Steganography</title>
+  <link rel='stylesheet' href='https://cdn.jsdelivr.net/foundation/6.2.0/foundation.min.css'>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="wrap">
+  	<h2>Eenvoudige steganografie code red = 2</h2>
+      <li><h4>encoder</h4></li>
+      <li>dit script maakt 2 canvas elementen</li>
+      <li>canvas 1 voor de geheime tekst boodschap (canvas )</li>
+      <li>canvas 2 voor het originele image</li>
+      <li>de canvassen krijgen dezelfde afmetingen</li>
+      <li>de encoder loopt door canvas 1 en test op zwarte pixels. Een zwart pixel betekent onderdeel van de tekst boodschap<br>
+          als er een witte pixel is dan is dat geen onderdeel van de boodschap.
+          <br>Geen onderdeel van de boodschap =>in het originele image canvas2 mag de rode RGB NIET op 2 eindigen.
+          <br>Wel onderdeel van de boodschap =>in het originele image canvas2 MOET de rode RGB op 2 eindigen
+      </li>
+      <li><h4>decoder</h4></li>
+      <li>de decoder loopt door het image met de boodschap</li>
+      <li>alle pixels waarvan de rode RGB NIET op 2 eindigt worden onderdrukt</li>
+
+    </ul>
+  	<h3>Encode een imagemet een bericht</h3>
+  	<label>De geheime boodschap:</label>
+  	<input type="text" id="message" placeholder="Enter your secret message" size="100"></br>
+  	<label>Upload een image:</label><br/>
+  	<input type="file" id="imageLoader" name="imageLoader" value = "upload een image"  accept="image/*" />
+    <a href="#" class="button" id="btn-download" download="my-file-name.png">Save het image</a>
+    <canvas id="textCanvas"></canvas>
+  	<canvas id="imageCanvas"></canvas>
+
+  </div>
+    <script  src="js/encode.js"></script>
+
+
+
+
+</body>
+
+</html>
